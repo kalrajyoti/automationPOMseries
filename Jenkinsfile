@@ -15,6 +15,19 @@ pipeline{
                 sh "docker-compose -f test-suites.yaml up --pull=always"
             }
         }
+           stage('Publish Allure Reports') {
+                   steps {
+                        script {
+                            allure([
+                                includeProperties: false,
+                                jdk: '',
+                                properties: [],
+                                reportBuildPolicy: 'ALWAYS',
+                                results: [[path: '/allure-results']]
+                            ])
+                        }
+                    }
+                }
 
     }
 
@@ -24,6 +37,8 @@ pipeline{
             sh "docker-compose -f test-suites.yaml down"
             archiveArtifacts artifacts: 'output/flight-reservation/emailable-report.html', followSymlinks: false
             archiveArtifacts artifacts: 'output/vendor-portal/emailable-report.html', followSymlinks: false
+            archiveArtifacts artifacts: '/allure-results:/home/selenium-docker/allure-results', followSymlinks: false
+            archiveArtifacts artifacts: '/allure-results:/home/selenium-docker/allure-results', followSymlinks: false
         }
     }
 
