@@ -35,8 +35,3 @@ services:
       - SE_NODE_MAX_SESSIONS=4
   selenium-hub:
     image: selenium/hub
-    container_name: hub
-    ports:
-      - "4442:4442"
-      - "4443:4443"
-      - "4444:4444"

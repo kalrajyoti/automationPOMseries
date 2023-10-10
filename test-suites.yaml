@@ -3,7 +3,7 @@ services:
   vendor-portal1:
     image: 335022/seleniumdocker
     environment:
-      - BROWSER=chrome
+      - BROWSER
       - HUB_HOST=hub
       - THREAD_COUNT=3
       - TEST_SUITE=testng_regression.xml
