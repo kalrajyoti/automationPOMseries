@@ -1,6 +1,6 @@
 version: "3"
 services:
-  vendor-portal:
+  vendor-portal1:
     image: 335022/seleniumdocker
     environment:
       - BROWSER=chrome
