@@ -16,7 +16,7 @@ pipeline{
             }
         }
 
-    }
+
        stage('Publish Allure Reports') {
                        steps {
                             script {
@@ -29,6 +29,7 @@ pipeline{
                                 ])
                             }
                         }
+                    }
                     }
 
     post {
